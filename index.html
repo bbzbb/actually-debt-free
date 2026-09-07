@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actually Debt Free: the plan that finally moves the number</title>
+<meta name="description" content="A debt Snowball and Avalanche calculator built to actually work: real formulas, a real payoff date, and a guarantee that it works or your money back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --ink:#17181A;
+    --ink-soft:#4B4D52;
+    --progress:#3F6B4F;
+    --progress-soft:#E8EFE9;
+    --line:#E4E2DC;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--paper);}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+    font-size:1.125rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--progress);}
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.5rem;}
+  .wrap-wide{max-width:760px;margin:0 auto;padding:0 1.5rem;}
+
+  header.top{padding:2.25rem 0 0;}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{font-weight:600;font-size:1.05rem;letter-spacing:0.01em;}
+  .wordmark .dot{color:var(--progress);}
+
+  .hero{padding:3.5rem 0 2rem;}
+  .hero h1{
+    font-size:clamp(2.3rem,6vw,3.6rem);
+    font-weight:600;
+    line-height:1.08;
+    margin:0 0 1.25rem;
+    letter-spacing:-0.01em;
+  }
+  .hero .sub{
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    max-width:38ch;
+    margin:0 0 1.75rem;
+  }
+  .hero .promise{
+    font-style:italic;
+    font-size:1.15rem;
+  }
+
+  section{padding:2.75rem 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2{
+    font-size:1.5rem;
+    font-weight:600;
+    margin:0 0 1.1rem;
+    letter-spacing:-0.005em;
+  }
+  p{margin:0 0 1.15rem;}
+  p:last-child{margin-bottom:0;}
+
+  .signoff{margin-top:1.5rem;color:var(--ink-soft);font-style:italic;}
+
+  ul.get{list-style:none;margin:0;padding:0;}
+  ul.get li{
+    padding:1.1rem 0;
+    border-top:1px solid var(--line);
+  }
+  ul.get li:first-child{border-top:none;padding-top:0;}
+  ul.get li b{font-weight:600;}
+
+  .chart-block{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:1.75rem 1.5rem 1.25rem;
+    margin:0.5rem 0 1.5rem;
+  }
+  .chart-block svg{width:100%;height:auto;display:block;}
+  .chart-cap{font-size:0.95rem;color:var(--ink-soft);text-align:center;margin-top:0.75rem;}
+
+  .proof-list{margin:0 0 1.15rem;padding-left:1.3rem;}
+  .proof-list li{margin-bottom:0.5rem;}
+
+  .offer-box{
+    border:1px solid var(--line);
+    padding:1.75rem 1.75rem 1.5rem;
+    margin:0.5rem 0 0;
+  }
+  .price-row{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.5rem;}
+  .price-now{font-size:2.4rem;font-weight:700;}
+  .price-was{font-size:1.25rem;color:var(--ink-soft);text-decoration:line-through;}
+
+  .guarantee{
+    background:var(--progress-soft);
+    border:1px solid var(--progress);
+    padding:1.75rem;
+    margin:0.5rem 0;
+  }
+  .guarantee h2{color:var(--progress);}
+
+  .cta{
+    display:inline-block;
+    background:var(--progress);
+    color:#fff;
+    text-decoration:none;
+    font-family:"Source Serif 4",serif;
+    font-weight:600;
+    font-size:1.15rem;
+    padding:1rem 2rem;
+    border:none;
+    cursor:pointer;
+  }
+  .cta:hover{background:#345a41;}
+  .cta-row{text-align:center;margin:1.75rem 0 0.5rem;}
+  .cta-sub{text-align:center;font-size:0.95rem;color:var(--ink-soft);margin-top:0.75rem;}
+
+  footer{padding:3rem 0 4rem;color:var(--ink-soft);font-size:0.95rem;}
+  footer .wrap{border-top:1px solid var(--line);padding-top:1.75rem;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .cta{transition:background 0.15s ease;}
+  }
+  .cta:focus-visible, a:focus-visible{outline:2px solid var(--progress);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="wordmark">Actually<span class="dot">.</span>Debt<span class="dot">.</span>Free</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Does it ever go away?</h1>
+    <p class="sub">You've cut the subscriptions. You've skipped the nights out. You've even taken a second job and quit it because it was too much. And the debt is still there.</p>
+    <p class="promise">Get the plan that actually moves the number, or every dollar comes back.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p>Hey.</p>
+    <p>A few years ago I did the math on my own debt and it was so far out of control I didn't want to look at it again. Credit cards in three different apps. A car loan I forgot was even accruing interest. A number that never seemed to move no matter how hard I worked.</p>
+    <p>If that's you right now, I'm not going to tell you to cut out coffee. You've probably already cancelled the gym membership, switched to a cheaper phone plan, started making coffee at home, cut your subscriptions down to two, and you still feel like you're standing still. You've done the obvious things. They weren't enough. That's not a discipline problem. That's a plan problem.</p>
+    <p>You've probably also thought about going further. Zero spending. No going out, ever, until it's paid off. And you've probably talked yourself out of it, because you know what that does to you. It's not sustainable, and it's not worth what it costs your mental health to try.</p>
+    <p>So you're stuck between two options that both feel bad: grind harder than you can actually sustain, or keep doing what you're doing and wonder if this ever ends.</p>
+    <p>There's a third option. It's not about doing more. It's about finally seeing exactly where every dollar goes, in one place, with a real date attached to when you're done.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Why I built this</h2>
+    <p>I went looking for a tool to do this and found the same two problems on every one I tried: it broke the second I opened it somewhere other than where I built it, or it did the math wrong. One calculator I found insisted I'd be carrying a balance for nine years at the rate I entered, which was just wrong. Another worked fine in Excel and fell apart the moment I opened it in Google Sheets: formulas gone, values missing, hours wasted.</p>
+    <p>So I built the thing I actually needed, had the math independently checked against a calculation done completely from scratch, and I'm handing it to you exactly as I use it myself.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What you actually get</h2>
+    <ul class="get">
+      <li><b>See the exact date you'll be debt free</b>, not just a shrinking balance. "Still working on it" isn't an answer. A real date is.</li>
+      <li><b>Enter every debt you have in one place</b> (credit cards, the car loan, the medical bill, whatever it is) instead of five different apps that don't talk to each other.</li>
+      <li><b>Pick Snowball or Avalanche with one click</b>, and watch your whole payoff order rebuild itself instantly. No formulas to touch, no tabs to rebuild.</li>
+      <li><b>Log what you actually paid, on the day you actually paid it</b> (a bonus payment, a month you fell short, whatever really happened), and every balance and your payoff date after that move on their own. Life doesn't hold still. Your plan shouldn't either.</li>
+      <li><b>Watch the line go down, month by month.</b> Seeing it drop is what makes this feel real, the same way crossing a debt off a list does.</li>
+      <li><b>Open it in Excel or Google Sheets and get the exact same thing, every time.</b> Nothing breaks when you switch devices or send it to your phone.</li>
+    </ul>
+
+    <div class="chart-block">
+      <svg viewbox="0 0 620 200" role="img" aria-label="An illustration of a total balance sloping down to zero over time">
+        <polyline points="10,20 90,45 170,55 250,90 330,105 410,140 490,160 570,185" fill="none" stroke="#3F6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="20" r="4" fill="#3F6B4F"/>
+        <circle cx="570" cy="185" r="4" fill="#3F6B4F"/>
+        <line x1="10" y1="190" x2="610" y2="190" stroke="#E4E2DC" stroke-width="1"/>
+      </svg>
+      <p class="chart-cap">This is what the Dashboard shows you: total balance, every month, until it hits zero. (Illustration, not a real customer's numbers.)</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>We're new. Here's how we prove it.</h2>
+    <p>Actually Debt Free is brand new, so there's no wall of five-star reviews to show you yet. What I can show you is the work.</p>
+    <p>Before this ever went up for sale, it went through nine separate tests, on purpose, built directly from the actual complaints people left on a similar tool:</p>
+    <ul class="proof-list">
+      <li>Does it handle a 0% interest rate without breaking? (A competitor's didn't.)</li>
+      <li>Does the math survive a real, irregular extra payment mid-plan?</li>
+      <li>Does a paid-off debt actually stop charging interest and free up that money for the next one?</li>
+      <li>Does switching Snowball to Avalanche produce a genuinely different order, not the same one twice?</li>
+      <li>Does it still work with half the rows left blank, and with every row filled?</li>
+    </ul>
+    <p>Every test is documented. Nothing shipped with a known problem attached to it and a note explaining it away.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The offer</h2>
+    <div class="offer-box">
+      <div class="price-row">
+        <span class="price-now">$67</span>
+        <span class="price-was">$127</span>
+      </div>
+      <p>One payment. Yours forever. No subscription, and no upsell waiting on the next page. The launch price holds for the first buyers testing this with me. Once it closes, it goes back to $127 and stays there.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <h2>We guarantee it will work, or your money back.</h2>
+      <p>Use it for 30 days. Enter your real debts, pick your method, watch your real payoff date. If it doesn't give you a clearer answer about when you'll be debt free than you had before you opened it, email me and I'll refund every dollar. No form, no "why are you leaving" survey. Just tell me it didn't help.</p>
+      <p>Here's the honest reason I can offer that: I'm not worried about it. The people who actually open this and put their real numbers in aren't the ones asking for their money back. If you're the rare exception, I'd rather hand you $67 than have you sitting on something that didn't do what I told you it would.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p>Click below. You'll land on a simple checkout, one page, no account required. Pay once, and the file lands in your inbox in under a minute, ready to open in Excel or Google Sheets. Put your first debt in tonight.</p>
+    <div class="cta-row">
+      <!-- TODO: replace href with the real Gumroad product / overlay link once the Gumroad product exists -->
+      <a class="cta" href="#" id="buy-link">Get the calculator ($67, guaranteed)</a>
+      <p class="cta-sub">30-day money-back guarantee. Instant download.</p>
+    </div>
+    <p class="signoff">P.S. If you've read this far and you're still on the fence: you don't have to believe me. Believe the guarantee. Try it with your real numbers. If it doesn't earn its $67 back in the clarity it gives you, I'll hand it back myself.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Actually Debt Free. One tool, one job: show you the real date you'll be done.</p>
+  </div>
+</footer>
+
+</body>
+</html>

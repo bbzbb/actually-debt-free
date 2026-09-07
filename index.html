@@ -104,6 +104,8 @@
   .price-row{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.5rem;}
   .price-now{font-size:2.4rem;font-weight:700;}
   .price-was{font-size:1.25rem;color:var(--ink-soft);text-decoration:line-through;}
+  .deadline{font-size:0.95rem;color:var(--ink-soft);margin-top:0.75rem;}
+  .deadline strong{color:var(--progress);}
 
   .guarantee{
     background:var(--progress-soft);
@@ -241,10 +243,27 @@
         <span class="price-now">$67</span>
         <span class="price-was">$127</span>
       </div>
-      <p>One payment. Yours forever. No subscription, and no upsell waiting on the next page. The launch price holds for the first buyers testing this with me. Once it closes, it goes back to $127 and stays there.</p>
+      <p>One payment. Yours forever. No subscription, and no upsell waiting on the next page.</p>
+      <p class="deadline">Price goes to $127 on <strong>Tuesday, September 8, 11:00 PM ET</strong><span id="countdown"></span>.</p>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var deadline = new Date("2026-09-09T03:00:00Z"); // Tue Sep 8, 11:00 PM ET
+  var el = document.getElementById("countdown");
+  function tick(){
+    var ms = deadline - new Date();
+    if (ms <= 0) { el.textContent = " (closed)"; return; }
+    var h = Math.floor(ms / 3600000);
+    var m = Math.floor((ms % 3600000) / 60000);
+    el.textContent = " (" + h + "h " + m + "m left)";
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
 
 <section>
   <div class="wrap">
